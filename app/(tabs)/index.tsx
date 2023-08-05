@@ -1,22 +1,23 @@
-import { StyleSheet } from 'react-native';
-
+import { FlatList, StyleSheet } from 'react-native';
+import tweets from '../../assets/data/tweets';
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
+import Tweet from '@/components/Tweet';
 
 export default function TabOneScreen() {
   return (
-    <View style={styles.container}>
-      <Text>hello sadd khan</Text>
+    <View style={styles.page}>
+          <FlatList data={tweets} renderItem={({ item }) => <Tweet tweet={item} />} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+
+    page: {
+      flex: 1,
+      backgroundColor: 'white',
+    },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
