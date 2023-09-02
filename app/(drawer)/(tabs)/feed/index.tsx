@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet } from 'react-native';
-import tweets from '../../../assets/data/tweets'
+import tweets from '../../../../assets/data/tweets'
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
 import { Entypo } from '@expo/vector-icons';

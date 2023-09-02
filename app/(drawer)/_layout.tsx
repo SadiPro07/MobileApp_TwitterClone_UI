@@ -9,6 +9,10 @@ const DrawerNavigator = createDrawerNavigator().Navigator;
 
 const Drawer = withLayoutContext(DrawerNavigator);
 
+export const unstable_settings = {
+    initialRouteName: '(tabs)',
+}
+
 
 function CustomDrawerContent(props) {
     return (
