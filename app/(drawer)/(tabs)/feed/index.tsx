@@ -13,7 +13,7 @@ export default function TabOneScreen() {
   const [tweet, setTweets] = useState([]);
 
   const {data,error, isLoading, } = useQuery({
-    queryKey: ['tweet'],
+    queryKey: ['tweets'],
     queryFn:listTweets,
   })
 
