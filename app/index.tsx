@@ -1,15 +1,19 @@
-import { useEffect, useState } from "react";
-import { Text, View } from "react-native";
-import axios from 'axios';
-import { listTweets } from "@/lib/api/tweets";
+import { View, Text } from 'react-native'
+import React from 'react'
+import { Redirect, useRouter, router } from 'expo-router'
+
+// import { router } from "expo-router";
 
 
-export default function Index() {
-  return (
-    <>
-      <View>
-        <Text>helll</Text>
-      </View>
-    </>
-  );
+
+const index = () => {
+    return (
+        <>
+            <View>
+                <Text>Hello world</Text>
+            </View>
+            </>
+    )
 }
+
+export default index

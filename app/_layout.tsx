@@ -1,3 +1,4 @@
+import AuthContextProvider from '@/context/AuthContext';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import {QueryClient , QueryClientProvider } from '@tanstack/react-query';
@@ -49,7 +50,8 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
  
   return (
-
+    <>
+      <AuthContextProvider>
     <QueryClientProvider client={client}>
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
@@ -59,13 +61,15 @@ function RootLayoutNav() {
                 />
      
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-        <Stack.Screen name="tweet/[id]" options={{
+        {/* <Stack.Screen name="tweet/[id]" options={{
           title: "Tweet"
-        }} />
+        }} /> */}
           <Stack.Screen name="new-tweet" options={{
           title: "Create New Tweet", headerShown:false }} />
       </Stack>
     </ThemeProvider>
-         </QueryClientProvider>
+        </QueryClientProvider>
+        </AuthContextProvider>
+      </>
   );
 }
