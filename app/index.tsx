@@ -7,13 +7,7 @@ import { Redirect, useRouter, router } from 'expo-router'
 
 
 const index = () => {
-    return (
-        <>
-            <View>
-                <Text>Hello world</Text>
-            </View>
-            </>
-    )
+            return  <Redirect href={'/feed'} />;
 }
 
 export default index
