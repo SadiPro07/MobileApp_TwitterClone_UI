@@ -8,7 +8,15 @@ import {
 } from 'react';
 import * as SecureStore from 'expo-secure-store';
 
-const AuthContext = createContext({});
+interface AuthContextType {
+  authToken: string | null;
+  updateAuthToken: (newToken: string) => void;
+  removeAuthToken: () => void;
+}
+
+export { AuthContextType };
+
+const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 const AuthContextProvider = ({ children }: PropsWithChildren) => {
   const [authToken, setAuthToken] = useState<string | null>(null);
@@ -56,5 +64,6 @@ const AuthContextProvider = ({ children }: PropsWithChildren) => {
 };
 
 export default AuthContextProvider;
+
 
 export const useAuth = () => useContext(AuthContext);

@@ -6,12 +6,12 @@ import { Entypo } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 import Tweet from '@/components/Tweet';
 import { useEffect, useState } from 'react';
-import { listTweets } from '@/lib/api/tweets';
+import { useTweetsApi } from '@/lib/api/tweets';
 import { useQuery } from '@tanstack/react-query';
 
 export default function TabOneScreen() {
   const [tweet, setTweets] = useState([]);
-
+  const { listTweets } = useTweetsApi();
   const {data,error, isLoading, } = useQuery({
     queryKey: ['tweets'],
     queryFn:listTweets,

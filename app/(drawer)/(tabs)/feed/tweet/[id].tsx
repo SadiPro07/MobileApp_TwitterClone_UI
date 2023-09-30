@@ -3,12 +3,12 @@ import Tweet from "../../../../../components/Tweet";
 import { useGlobalSearchParams } from 'expo-router';
 // import { useQuery } from '@tanstack/react-query';
 // import { useTweetsApi } from '../../../../../lib/api/tweets';
-import { getTweet } from '@/lib/api/tweets';
+import { useTweetsApi } from '@/lib/api/tweets';
 import { useQuery } from '@tanstack/react-query';
 
 export default function TweetScreen() {
   const { id } = useGlobalSearchParams();
-//   const { getTweet } = useTweetsApi();
+  const { getTweet } = useTweetsApi();
 
   const { data, isLoading, error } = useQuery({
     queryKey: ['tweet', id],

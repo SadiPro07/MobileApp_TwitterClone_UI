@@ -1,4 +1,5 @@
 import AuthContextProvider from '@/context/AuthContext';
+import TweetsApiContextProvider from '@/lib/api/tweets';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import {QueryClient , QueryClientProvider } from '@tanstack/react-query';
@@ -52,6 +53,7 @@ function RootLayoutNav() {
   return (
     <>
       <AuthContextProvider>
+        <TweetsApiContextProvider>
     <QueryClientProvider client={client}>
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <Stack>
@@ -66,7 +68,6 @@ function RootLayoutNav() {
         }} /> */}
           <Stack.Screen name="new-tweet" options={{
           title: "Create New Tweet", headerShown:false }} />
-            </Stack>
             <Stack.Screen
                   name="(auth)/signIn"
                   options={{ headerShown: false }}
@@ -74,9 +75,11 @@ function RootLayoutNav() {
               <Stack.Screen
                   name="(auth)/authenticate"
                   options={{ title: 'Confirm' }}
-                />
+              />
+                </Stack>
     </ThemeProvider>
-        </QueryClientProvider>
+          </QueryClientProvider>
+          </TweetsApiContextProvider>
         </AuthContextProvider>
       </>
   );

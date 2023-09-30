@@ -1,8 +1,6 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import { Redirect, useRouter, router } from 'expo-router'
-
-// import { router } from "expo-router";
+import { Redirect} from 'expo-router'
 
 
 

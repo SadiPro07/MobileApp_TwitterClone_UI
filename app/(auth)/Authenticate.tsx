@@ -9,13 +9,13 @@ import {
 import React, { useState } from 'react';
 import { useSearchParams } from 'expo-router';
 import { authenticate } from '../../lib/api/auth';
-import { useAuth } from '../../context/AuthContext';
+import { useAuth, AuthContextType } from '../../context/AuthContext';
 
 const Authenticate = () => {
   const [code, setCode] = useState('');
   const { email } = useSearchParams();
 
-  const { updateAuthToken } = useAuth();
+  const { updateAuthToken } = useAuth() as AuthContextType;
 
   const onConfirm = async () => {
     if (typeof email !== 'string') {
